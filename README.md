@@ -8,7 +8,7 @@ this website is a cookie stand website that has a sales page that calculates ava
 * Author: Tamara Albilleh
 * to go to the main page [click here](https://tamaraalbilleh.github.io/cookie-stand/index)
 * to go to the sales page [click here](https://tamaraalbilleh.github.io/cookie-stand/sales)
-* submission PR : [pull request](https://github.com/tamaraalbilleh/cookie-stand/pull/1)
+* submission PR : [pull request](https://github.com/tamaraalbilleh/cookie-stand/pull/2)
 
 
 ## Reflections and Comments
