@@ -8,6 +8,7 @@ const Seattle = {
   minCookieNumber : 23,
   maxCookieNumber : 65,
   average : 6.3,
+  customerPerHourSeattle : [],
   cookiePerHourSeattle :[] ,
   totalCookiesSales : 0 ,
   randomCookieNumberForEachHour : function (min,max,avg) {
@@ -18,9 +19,11 @@ const Seattle = {
   render : function (){
     for (let t = 0;t< this.hours.length;t++){
       this.cookiePerHourSeattle[t] = this.randomCookieNumberForEachHour (this.minCookieNumber,this.maxCookieNumber,this.average);
+      this.customerPerHourSeattle[t]= (Math.ceil(this.cookiePerHourSeattle[t]/this.average));
       this.totalCookiesSales =this.totalCookiesSales+ this.cookiePerHourSeattle[t];
     }
-
+    console.log (this.customerPerHourSeattle);
+    console.log (this.cookiePerHourSeattle);
     const parentElement = document.getElementById('sales');
     const h1Element = document.createElement('h1');
     parentElement.appendChild(h1Element);
@@ -52,18 +55,22 @@ const tokyo = {
   minCookieNumber : 3,
   maxCookieNumber : 24,
   average : 1.2,
+  customerPerHourTokyo : [],
   cookiePerHourTokyo :[] ,
   totalCookiesSales : 0 ,
   randomCookieNumberForEachHour : function (min,max,avg) {
     return Math.ceil((Math.random() * (max - min + 1) + min)*avg);
   },
 
+
   render : function (){
     for (let t = 0;t< this.hours.length;t++){
       this.cookiePerHourTokyo[t] = this.randomCookieNumberForEachHour (this.minCookieNumber,this.maxCookieNumber,this.average);
+      this.customerPerHourTokyo[t]= (Math.ceil(this.cookiePerHourTokyo[t]/this.average));
       this.totalCookiesSales =this.totalCookiesSales+ this.cookiePerHourTokyo[t];
     }
-
+    console.log (this.customerPerHourTokyo);
+    console.log (this.cookiePerHourTokyo);
     const parentElement = document.getElementById('sales');
     const h2Element = document.createElement('h2');
     parentElement.appendChild(h2Element);
@@ -91,6 +98,7 @@ const dubai = {
   minCookieNumber : 11,
   maxCookieNumber : 38,
   average : 3.7,
+  customerPerHourDubai : [],
   cookiePerHourDubai :[] ,
   totalCookiesSales : 0 ,
   randomCookieNumberForEachHour : function (min,max,avg) {
@@ -101,9 +109,11 @@ const dubai = {
   render : function (){
     for (let t = 0;t< this.hours.length;t++){
       this.cookiePerHourDubai[t] = this.randomCookieNumberForEachHour (this.minCookieNumber,this.maxCookieNumber,this.average);
+      this.customerPerHourDubai[t]= (Math.ceil(this.cookiePerHourDubai[t]/this.average));
       this.totalCookiesSales =this.totalCookiesSales+ this.cookiePerHourDubai[t];
     }
-
+    console.log (this.customerPerHourDubai);
+    console.log (this.cookiePerHourDubai);
     const parentElement = document.getElementById('sales');
     const h2Element = document.createElement('h2');
     parentElement.appendChild(h2Element);
@@ -131,6 +141,7 @@ const paris = {
   minCookieNumber : 20,
   maxCookieNumber : 38,
   average : 2.3,
+  customerPerHourParis : [],
   cookiePerHourParis :[] ,
   totalCookiesSales : 0 ,
   randomCookieNumberForEachHour : function (min,max,avg) {
@@ -141,9 +152,11 @@ const paris = {
   render : function (){
     for (let t = 0;t< this.hours.length;t++){
       this.cookiePerHourParis[t] = this.randomCookieNumberForEachHour (this.minCookieNumber,this.maxCookieNumber,this.average);
+      this.customerPerHourParis[t]= (Math.ceil(this.cookiePerHourParis[t]/this.average));
       this.totalCookiesSales =this.totalCookiesSales+ this.cookiePerHourParis[t];
     }
-
+    console.log (this.customerPerHourParis);
+    console.log (this.cookiePerHourParis);
     const parentElement = document.getElementById('sales');
     const h2Element = document.createElement('h2');
     parentElement.appendChild(h2Element);
@@ -171,6 +184,7 @@ const lima = {
   minCookieNumber : 2,
   maxCookieNumber : 16,
   average : 4.6,
+  customerPerHourLima : [],
   cookiePerHourLima :[] ,
   totalCookiesSales : 0 ,
   randomCookieNumberForEachHour : function (min,max,avg) {
@@ -181,9 +195,11 @@ const lima = {
   render : function (){
     for (let t = 0;t< this.hours.length;t++){
       this.cookiePerHourLima[t] = this.randomCookieNumberForEachHour (this.minCookieNumber,this.maxCookieNumber,this.average);
+      this.customerPerHourLima[t]= (Math.ceil(this.cookiePerHourLima[t]/this.average));
       this.totalCookiesSales =this.totalCookiesSales+ this.cookiePerHourLima[t];
     }
-
+    console.log (this.customerPerHourLima);
+    console.log (this.cookiePerHourLima);
     const parentElement = document.getElementById('sales');
     const h2Element = document.createElement('h2');
     parentElement.appendChild(h2Element);
