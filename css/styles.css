@@ -1,3 +1,8 @@
+body{
+    text-align: center;
+    margin: auto;
+    width: 960px;
+}
 h1{
     text-align: center;
     background-color: rgb(32, 32, 43);
@@ -11,4 +16,20 @@ h2 {
 ul li:nth-last-child(1){
     background-color: slategray;
 
+}
+table {
+
+}
+td {
+background-color: whitesmoke;
+}
+th {
+background-color: whitesmoke;
+color:salmon ;
+height : 30px;
+border-bottom:  rgb(38, 44, 49);
+border-width: 6px;
+border-style: solid;
+margin: 0%;
+padding: 0px;
 }
