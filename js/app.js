@@ -88,21 +88,21 @@ CitySales.prototype.render =function () {
 };
 CitySales.prototype.footerRender = function (){
   const container = document.getElementById ('table');
-  const footerElement = document.createElement ('tr');
+  const footerElement = document.createElement ('th');
   container.appendChild (footerElement);
   const footerTitle = document.createElement ('td');
   footerElement.appendChild (footerTitle);
   footerTitle.textContent = 'Totals';
   for (let u = 0; u < hoursNumber; u++) {
-    const footerData =  document.createElement ('td');
-    footerElement.appendChild (footerData);
+    const footerData =  document.createElement ('th');
+    container.appendChild (footerData);
     footerData.textContent = hourlyArray[u];
 
   }
 
 
-  const footerData =  document.createElement ('td');
-  footerElement.appendChild (footerData);
+  const footerData =  document.createElement ('th');
+  container.appendChild (footerData);
   footerData.textContent = lastColumnLastData;
 };
 
