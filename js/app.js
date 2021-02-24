@@ -1,12 +1,14 @@
 'use strict';
 
-//trial//
+//variables and arrays //
 let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 let hoursNumber = hours.length;
 let heading = 'Sales';
 let totalsArray = [];
 let totalOfTotals =[];
-let hourlyArray =[];
+let totalCookiesPerDay =[];
+let neyCityArray =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let allOldCites=[];
 const parentElement = document.getElementById('sales');
 const h1Element = document.createElement('h1');
 parentElement.appendChild(h1Element);
@@ -18,28 +20,30 @@ let lastColumnLData = function () {
 
   }
 };
-
+///// constructor /////
 function CitySales (city){
   this.city = city;
   this.customerPerHour = [];
-  this.cookiePerHour = [];
-  this.totalCookiesSales = 0 ;
+  this.cookieNumberPerHourArr = [];
+  this.totalCookiesSoledForTheDay = 0 ;
+  allOldCites.push (this);
+
 }
 
 
 CitySales.prototype.cookieNumberPerHour = function (min,max,avg) {
   for (let t = 0;t< hoursNumber;t++){
     this.customerPerHour.push (Math.ceil((Math.random() * (max - min + 1) + min)));
-    this.cookiePerHour.push (Math.ceil((this.customerPerHour[t]*avg)));
-    hourlyArray[t]+= this.cookiePerHour[t];
+    this.cookieNumberPerHourArr.push (Math.ceil((this.customerPerHour[t]*avg)));
+    totalCookiesPerDay[t]+= this.cookieNumberPerHourArr[t];
   }
 };
 CitySales.prototype.totals = function () {
   for (let i =0;i<hoursNumber;i++){
-    this.totalCookiesSales =this.totalCookiesSales +this.cookiePerHour [i];
-    totalsArray.push (this.totalCookiesSales);
+    this.totalCookiesSoledForTheDay =this.totalCookiesSoledForTheDay +this.cookieNumberPerHourArr [i];
+    totalsArray.push (this.totalCookiesSoledForTheDay);
   }
-  totalOfTotals.push (this.totalCookiesSales);
+  totalOfTotals.push (this.totalCookiesSoledForTheDay);
 };
 
 CitySales.prototype.headRender =function () {
@@ -59,6 +63,9 @@ CitySales.prototype.headRender =function () {
   tableElement.appendChild (thTotal);
   thTotal.textContent = ' Daily Location Total';
 };
+
+
+
 CitySales.prototype.render =function () {
   const container= document.getElementById('table');
   const rawElement =document.createElement ('tr');
@@ -69,14 +76,53 @@ CitySales.prototype.render =function () {
   for (let l = 0; l < hoursNumber; l++) {
     const rawContent = document.createElement ('td');
     rawElement.appendChild (rawContent);
-    rawContent.textContent = this.cookiePerHour [l];
-    rawContent.setAttribute ('id',l);
+    rawContent.textContent = this.cookieNumberPerHourArr [l];
+    // rawContent.setAttribute ('id',l);
   }
   const rawTotal = document.createElement ('td');
   rawElement.appendChild (rawTotal);
-  rawTotal.textContent = this.totalCookiesSales;
+  rawTotal.textContent = this.totalCookiesSoledForTheDay;
 
 };
+
+const formElement = document.getElementById('userInput');
+
+formElement.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const cityName = event.target.city_name.value;
+  const minimumCustomer = event.target.minimumCustomer.value;
+  const maximumCustomer = event.target.maximumCustomer.value;
+  const averageCookies = event.target.averageCookies.value;
+
+
+
+  const addCitySale = new CitySales(cityName);
+  addCitySale.cookieNumberPerHour(minimumCustomer,maximumCustomer,averageCookies);
+  addCitySale.totals();
+  addCitySale.render();
+  for (let k = 0; k < hoursNumber; k++) {
+    neyCityArray.push= (addCitySale.cookieNumberPerHour(minimumCustomer,maximumCustomer,averageCookies));
+
+  }
+  const container = document.getElementById ('table');
+  const footerElement = document.createElement ('th');
+  container.appendChild (footerElement);
+  const footerTitle = document.createElement ('td');
+  footerElement.appendChild (footerTitle);
+  footerTitle.textContent = 'New Totals';
+  for (let u = 0; u < hoursNumber; u++) {
+    const footerData =  document.createElement ('th');
+    container.appendChild (footerData);
+    footerData.textContent = Seattle.cookieNumberPerHourArr[u]+Tokyo.cookieNumberPerHourArr[u]+Lima.cookieNumberPerHourArr[u]+Dubai.cookieNumberPerHourArr[u]+Paris.cookieNumberPerHourArr[u];
+
+  }
+
+  formElement.reset();
+});
+
+
+
 CitySales.prototype.footerRender = function (){
   const container = document.getElementById ('table');
   const footerElement = document.createElement ('th');
@@ -87,7 +133,7 @@ CitySales.prototype.footerRender = function (){
   for (let u = 0; u < hoursNumber; u++) {
     const footerData =  document.createElement ('th');
     container.appendChild (footerData);
-    footerData.textContent = Seattle.cookiePerHour[u]+Tokyo.cookiePerHour[u]+Lima.cookiePerHour[u]+Dubai.cookiePerHour[u]+Paris.cookiePerHour[u];
+    footerData.textContent = Seattle.cookieNumberPerHourArr[u]+Tokyo.cookieNumberPerHourArr[u]+Lima.cookieNumberPerHourArr[u]+Dubai.cookieNumberPerHourArr[u]+Paris.cookieNumberPerHourArr[u];
 
   }
 
@@ -135,10 +181,25 @@ Paris.totals();
 
 Paris.render();
 
+
+
+
+
+
+
+
 // for Lima cookie stand //
 const Lima = new CitySales ('Lima');
 Lima.cookieNumberPerHour (11,38,3.7);
 Lima.totals();
 Lima.render();
+
+
+
+
+
+
+
 lastColumnLData();
 Lima.footerRender();
+console.log (allOldCites);
