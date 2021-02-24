@@ -1,4 +1,4 @@
-'use strick';
+'use strict';
 {/* <header id="home-header">
         <img id="logo" src="assets/logo.png" alt="logo">
         <h1>cookie stand</h1>
