@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
 
-
-
 * {
     box-sizing: border-box;
 }
@@ -133,6 +131,7 @@ footer{
     background-color: burlywood;
     color: rgba(68, 53, 38);
     padding: 20px;
+    text-align: center;
 }
 
 ul{
