@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
 body{
     text-align: center;
     margin: auto;
     width: 960px;
+    background-color: rgb(202, 202, 202);
 }
 h1{
     text-align: center;
@@ -18,10 +22,16 @@ ul li:nth-last-child(1){
 
 }
 table {
-
+border: 4px;
+border: rgb(38, 44, 49);
+border: outset;
 }
 td {
 background-color: whitesmoke;
+text-align: center;
+padding :4px;
+padding-top: 7px;
+font-family: 'Roboto', sans-serif;
 }
 th {
 background-color: whitesmoke;
@@ -32,4 +42,29 @@ border-width: 6px;
 border-style: solid;
 margin: 0%;
 padding: 0px;
+text-align: center;
+}
+
+#button1 {
+    background-color: salmon;
+    text-decoration: none;
+    color: rgb(32, 32, 43);
+    font-size: x-large;
+    padding: 10px;
+    float: right;
+}
+button :hover {
+    background-color: whitesmoke;
+    padding: 0px;
+}
+a {
+    text-decoration: none;
+    color: rgb(32, 32, 43);
+    font-size: x-large;
+}
+a:hover {
+    color :salmon
+}
+#button2 {
+    z-index:auto;
 }
