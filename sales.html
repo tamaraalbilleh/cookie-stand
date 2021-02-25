@@ -6,11 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sales</title>
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css"> 
 
 </head>
+
 <body id= "sales">
+    <header>
+        <form id="userInput">
+            <fieldset>
+                <legend>Add a new Branch</legend>
+                <label for="cityName">Branch Location</label>
+                <input type="text" id="cityhName" name="city_name" required="required">
+
+                <label for="minimumCustomer">Minimum Customers</label>
+                <input type="number" id="minimumCustomer" name="min_customer" required="required">
+
+                <label for="maximumCustomer">Maximum Customers</label>
+                <input type="number" id="maximumCustomer" name="max_customer "required="required" >
+
+                <label for="averageCookies">Average Cookies</label>
+                <input type="text" id="averageCookies" name="ave_cookies" required="required" pattern="\Number">
+        
+
+                <button id="button1" type="submit">Add Information</button>
+
+            </fieldset>
+        </form>
+    </header>
+    
+    
+    <button id="button2"><a href="index.html">Back to main page</a></button>
     <script src="js/app.js"></script>
-    <button><a href="index.html">Back to main page</a></button>
 </body>
 </html>

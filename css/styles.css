@@ -45,7 +45,7 @@ padding: 0px;
 text-align: center;
 }
 
-button{
+#button1 {
     background-color: salmon;
     text-decoration: none;
     color: rgb(32, 32, 43);
@@ -64,4 +64,7 @@ a {
 }
 a:hover {
     color :salmon
+}
+#button2 {
+    z-index:auto;
 }
