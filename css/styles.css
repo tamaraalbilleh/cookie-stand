@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600&display=swap');
 body{
     text-align: center;
     margin: auto;
     width: 960px;
-    background-color: rgb(202, 202, 202);
+    background-color: #f5f5f5;
 }
 h1{
     text-align: center;
-    background-color: rgb(32, 32, 43);
+    background-color: #404153;
     color: whitesmoke;
-    font-weight: bolder;
+  
+    font-size: 46px;
+    font-family: 'Markazi Text', serif;
+    letter-spacing: 5px;
 }
 h2 {
-    color: slategray;
+    color: #658C9D;
     font-weight: bolder;
 }
 ul li:nth-last-child(1){
@@ -27,15 +29,15 @@ border: rgb(38, 44, 49);
 border: outset;
 }
 td {
-background-color: whitesmoke;
+background-color: #FAD7D7;
 text-align: center;
 padding :4px;
 padding-top: 7px;
 font-family: 'Roboto', sans-serif;
 }
 th {
-background-color: whitesmoke;
-color:salmon ;
+background-color: #F5F5F5;
+color:#FE9292 ;
 height : 30px;
 border-bottom:  rgb(38, 44, 49);
 border-width: 6px;
@@ -46,7 +48,7 @@ text-align: center;
 }
 
 #button1 {
-    background-color: salmon;
+    background-color: #F8B2B0;
     text-decoration: none;
     color: rgb(32, 32, 43);
     font-size: x-large;
@@ -54,8 +56,8 @@ text-align: center;
     float: right;
 }
 button :hover {
-    background-color: whitesmoke;
-    padding: 0px;
+    background-color: white;
+    padding: 2px;
 }
 a {
     text-decoration: none;
@@ -63,8 +65,34 @@ a {
     font-size: x-large;
 }
 a:hover {
-    color :salmon
+    color :#FE9292
+}
+legend {
+    padding: 20px;
+    color: rgb(32, 32, 43);
+    margin: 4px;
+    font-family: 'Markazi Text', serif;
+    font-size: 30px;
+}
+form {
+    
+    padding: 4px;
+    border-style: inset;
+    border-width: 4px;
+    border-color: #404153;
+}
+label {
+    color: #a76464;
+}
+input {
+    margin: 5px;
+    border-color: #FE9292;
+    background-color: #fff5f5;
+}
+#button1 :hover {
+    background-color: #F5F5F5;
+    padding: 2px;
 }
 #button2 {
-    z-index:auto;
+    margin-top: 5px;
 }
