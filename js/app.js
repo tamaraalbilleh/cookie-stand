@@ -8,7 +8,9 @@ let totalsArray = [];
 let totalOfTotals =[];
 let totalCookiesPerDay =[];
 let neyCityArray =[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-let allOldCites=[];
+let tableRawsCount = 7;
+
+// let newTotalOfTotals = 0;
 const parentElement = document.getElementById('sales');
 const h1Element = document.createElement('h1');
 parentElement.appendChild(h1Element);
@@ -26,10 +28,10 @@ function CitySales (city){
   this.customerPerHour = [];
   this.cookieNumberPerHourArr = [];
   this.totalCookiesSoledForTheDay = 0 ;
-  allOldCites.push (this);
+  CitySales.allOldCites.push (this);
 
 }
-
+CitySales.allOldCites=[];
 
 CitySales.prototype.cookieNumberPerHour = function (min,max,avg) {
   for (let t = 0;t< hoursNumber;t++){
@@ -90,6 +92,7 @@ const formElement = document.getElementById('userInput');
 formElement.addEventListener('submit', function(event) {
   event.preventDefault();
 
+
   const cityName = event.target.city_name.value;
   const minimumCustomer = event.target.minimumCustomer.value;
   const maximumCustomer = event.target.maximumCustomer.value;
@@ -100,48 +103,77 @@ formElement.addEventListener('submit', function(event) {
   const addCitySale = new CitySales(cityName);
   addCitySale.cookieNumberPerHour(minimumCustomer,maximumCustomer,averageCookies);
   addCitySale.totals();
+
   addCitySale.render();
+
   for (let k = 0; k < hoursNumber; k++) {
     neyCityArray.push= (addCitySale.cookieNumberPerHour(minimumCustomer,maximumCustomer,averageCookies));
 
   }
+
   const container = document.getElementById ('table');
-  const footerElement = document.createElement ('th');
+  const footerElement = document.createElement ('tr');
+
+  let tableUpdate1 = document.getElementById ('table');
+  tableUpdate1.removeChild (tableUpdate1.lastChild.previousSibling );
+
+
+
   container.appendChild (footerElement);
-  const footerTitle = document.createElement ('td');
+  tableRawsCount = tableRawsCount +2;
+
+  const footerTitle = document.createElement ('th');
   footerElement.appendChild (footerTitle);
   footerTitle.textContent = 'New Totals';
+
   for (let u = 0; u < hoursNumber; u++) {
     const footerData =  document.createElement ('th');
-    container.appendChild (footerData);
-    footerData.textContent = Seattle.cookieNumberPerHourArr[u]+Tokyo.cookieNumberPerHourArr[u]+Lima.cookieNumberPerHourArr[u]+Dubai.cookieNumberPerHourArr[u]+Paris.cookieNumberPerHourArr[u];
-
+    footerElement.appendChild (footerData);
+    let total1 =0;
+    for (let d =0; d < CitySales.allOldCites.length; d++){
+      total1 += parseInt (CitySales.allOldCites[d].cookieNumberPerHourArr[u]);
+    }
+    footerData.textContent = total1;
   }
 
+
+
+  const newLastColumn =document.createElement ('th');
+  footerElement.appendChild (newLastColumn);
+  let total2 = 0;
+  for (let r=0; r<totalOfTotals.length;r++){
+    total2=total2+totalOfTotals[r];
+
+  }
+  newLastColumn.textContent = total2;
   formElement.reset();
+
 });
 
 
 
 CitySales.prototype.footerRender = function (){
   const container = document.getElementById ('table');
-  const footerElement = document.createElement ('th');
-  container.appendChild (footerElement);
-  const footerTitle = document.createElement ('td');
-  footerElement.appendChild (footerTitle);
+  const tableFooterRaw = document.createElement ('tr');
+  container.appendChild (tableFooterRaw);
+  tableFooterRaw.setAttribute('id','last');
+  const footerTitle = document.createElement ('th');
+  tableFooterRaw.appendChild (footerTitle);
   footerTitle.textContent = 'Totals';
   for (let u = 0; u < hoursNumber; u++) {
     const footerData =  document.createElement ('th');
-    container.appendChild (footerData);
+    tableFooterRaw.appendChild (footerData);
     footerData.textContent = Seattle.cookieNumberPerHourArr[u]+Tokyo.cookieNumberPerHourArr[u]+Lima.cookieNumberPerHourArr[u]+Dubai.cookieNumberPerHourArr[u]+Paris.cookieNumberPerHourArr[u];
 
   }
 
 
   const footerData =  document.createElement ('th');
-  container.appendChild (footerData);
+  tableFooterRaw.appendChild (footerData);
   footerData.textContent = lastColumnLastData;
 };
+
+
 
 
 lastColumnLData();
@@ -202,4 +234,6 @@ Lima.render();
 
 lastColumnLData();
 Lima.footerRender();
-console.log (allOldCites);
+
+
+// console.log (allOldCites.cookieNumberPerHourArr);
